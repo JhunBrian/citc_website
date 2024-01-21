@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+body {
+    font-family: 'Roboto';
+    color: #333;
+}
+
+.scrollb {
+    height: 550px;
+    overflow-y: scroll;
+}
+
+.grid-container 
+{
+  display: flex;
+  justify-content: center;
+}
+
+.team-container
+{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  max-width: 1200px; /* Adjust max-width as needed */
+  width: 100%;
+}
+
+.team-member
+{
+  background-color: blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.team-img
+{
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.popup
+{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: 1001; /* Ensure the pop-up is above the modal */
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.popup-content
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    max-height: 500px;
+    max-width: 800px;
+    background-color: #fff;
+/*    border-radius: 5px;*/
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s 0.2s;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.popup:target
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup:target .popup-content
+{
+    opacity: 1;
+}
+
+.close-popup
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.close-popup:hover
+{
+    color: red;
+}
+
+.fname {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(8, 1, 135, 0.5); 
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+/*    font-family: Arial;*/
+    font-size: 12px;
+    font-weight: bold;
+}
+
+i {
+    margin-right: 10px;
+    margin-left: 5px;
+    color:#080147;
+}
+
+.divider {
+  position: relative;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #ccc; /* Adjust the line color and style as needed */
+  z-index: -1; 
+}
+
+.divider h4 {
+  display: inline-block;
+  background-color: #fff; 
+  padding: 0 10px;
+  margin-left: 0px;
+  font-weight: bold;
+}
+
+.popup .popup-content a{
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .popup-content li {
+    list-style: none;
+}
+
+.popup .popup-content li:not(:last-child) {
+    margin-bottom: 15px;
+
+}
+
+.pub {
+    margin-top: 15px;
+}
+
+.reference {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+	</style>
+</head>
+<body>
+
+
+<div class="scrollb">
+    <div class="grid-container">
+    
+        <div class="team-container">
+            <div class="team-member">
+                <a href="#popup1" class="team-member">
+                    <img src="https://github.com/JhunBrian/CITC-Website/blob/main/images/faculty/CITC%20DS%20Matthew1.jpg?raw=true" alt="Team Member 1" class="team-img" id="member1"> 
+                </a>
+                <h5 class="fname">Matthew Maulion, MSc.</h5>
+            </div>
+
+            <div class="team-member">
+                <a href="#popup2" class="team-member">
+                    <img src="https://github.com/JhunBrian/CITC-Website/blob/main/images/faculty/CITC%20Placeholder1.png?raw=true" alt="Team Member 2" class="team-img" id="member2">
+                </a>
+                <h5 class="fname">Engr. Jocelyn Barbosa Ph.D.</h5>
+            </div>
+
+            <div class="team-member">
+                <a href="#popup3" class="team-member">
+                    <img src="https://github.com/JhunBrian/CITC-Website/blob/main/images/faculty/CITC%20Placeholder1.png?raw=true" alt="Team Member 2" class="team-img" id="member3">
+                </a>
+                <h5 class="fname">Engr. Albert  Christopher Daniot II, MSc.</h5>
+            </div>
+
+            <div class="team-member">
+                <a href="#popup4" class="team-member">
+                    <img src="https://github.com/JhunBrian/CITC-Website/blob/main/images/faculty/CITC%20Placeholder1.png?raw=true" alt="Team Member 2" class="team-img" id="member4">
+                </a>
+                <h5 class="fname">Angelie Sabanal</h5>
+            </div>
+
+            <div class="team-member">
+                <a href="#popup5" class="team-member">
+                    <img src="https://github.com/JhunBrian/CITC-Website/blob/main/images/faculty/CITC%20DS%20Brian1.jpg?raw=true" class="team-img" id="member5">
+                </a>
+                <h5 class="fname">Jhun Brian Andam</h5>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- Pop-up boxes -->
+<!-- <div id="popup1" class="popup">
+    <div class="popup-content">
+        <a href="#member1" class="close-popup">×</a>
+        <h2>👨‍🏫 Matthew Maulion MSc.</h2>
+        <p><b>Data Science Assistant Professor and Chairman</b></p>
+        <a href="mailto:matthew.maulion@ustp.edu.ph">matthew.maulion@ustp.edu.ph</a>
+        <div class="divider">
+            <h4>🎓 Educational Background</h4>
+        </div>
+        <ul>
+            <li><strong>Masters of Science in Data Science</strong></li>
+            <li>Asian Institute of Management, YYYY</li>
+            <li><strong>Bachelor of Science in Applied Mathematics</strong></li>
+            <li>University of Science and Technology of Southern Philippines, YYYY</li>
+        </ul>
+        <div class="divider">
+            <h4>📜 Research Background</h4>
+        </div>
+        <ul>
+            <li><strong>Research Interests:</strong> Artificial Intelligence, Machine Learning</li>
+            <li><strong>ORCID:</strong> ####-####-####-####</li>
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+        </ul>
+    </div>
+</div>
+
+<div id="popup2" class="popup">
+    <div class="popup-content">
+        <a href="#member2" class="close-popup">×</a>
+        <h2>👩‍🏫 Engr. Jocelyn Barbosa Ph.D.</h2>
+        <p><b>Data Science Professor and VCAA</b></p>
+        <a href="mailto:jocelyn.barbosa@ustp.edu.ph">jocelyn.barbosa@ustp.edu.ph</a>
+        <div class="divider">
+            <h4>🎓 Educational Background</h4>
+        </div>
+        <ul>
+            <li><strong>Masters of Science in Data Science</strong></li>
+            <li>Asian Institute of Management, YYYY</li>
+            <li><strong>Bachelor of Science in Applied Mathematics</strong></li>
+            <li>University of Science and Technology of Southern Philippines, YYYY</li>
+        </ul>
+        <div class="divider">
+            <h4>📜 Research Background</h4>
+        </div>
+        <ul>
+            <li><strong>Research Interests:</strong> Artificial Intelligence, Machine Learning</li>
+            <li><strong>ORCID:</strong> ####-####-####-####</li>
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+        </ul>
+    </div>
+</div>
+
+<div id="popup3" class="popup">
+    <div class="popup-content">
+        <a href="#member3" class="close-popup">×</a>
+        <h2>🧑🏻‍🏫 Engr. Albert Christopher Daniot, II MSc.</h2>
+        <p><b>Data Science Instructor</b></p>
+        <a href="mailto:albert.daniot@ustp.edu.ph">albert.daniot@ustp.edu.ph</a>
+        <div class="divider">
+            <h4>🎓 Educational Background</h4>
+        </div>
+        <ul>
+            <li><strong>Masters of Science in Data Science</strong></li>
+            <li>Asian Institute of Management, YYYY</li>
+            <li><strong>Bachelor of Science in Applied Mathematics</strong></li>
+            <li>University of Science and Technology of Southern Philippines, YYYY</li>
+        </ul>
+        <div class="divider">
+            <h4>📜 Research Background</h4>
+        </div>
+        <ul>
+            <li><strong>Research Interests:</strong> Artificial Intelligence, Machine Learning</li>
+            <li><strong>ORCID:</strong> ####-####-####-####</li>
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+        </ul>
+    </div>
+</div>
+
+<div id="popup4" class="popup">
+    <div class="popup-content">
+        <a href="#member4" class="close-popup">×</a>
+        <h2>👩🏻‍🏫 Angelie Sabanal</h2>
+        <p><b>Data Science Instructor</b></p>
+        <a href="mailto:asabanal@ustp.edu.ph">asabanal@ustp.edu.ph</a>
+        <div class="divider">
+            <h4>🎓 Educational Background</h4>
+        </div>
+        <ul>
+            <li><strong>Masters of Science in Data Science</strong></li>
+            <li>Asian Institute of Management, YYYY</li>
+            <li><strong>Bachelor of Science in Applied Mathematics</strong></li>
+            <li>University of Science and Technology of Southern Philippines, YYYY</li>
+        </ul>
+        <div class="divider">
+            <h4>📜 Research Background</h4>
+        </div>
+        <ul>
+            <li><strong>Research Interests:</strong> Artificial Intelligence, Machine Learning</li>
+            <li><strong>ORCID:</strong> ####-####-####-####</li>
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+        </ul>
+    </div>
+</div>
+
+<div id="popup5" class="popup">
+    <div class="popup-content">
+        <a href="#member5" class="close-popup">×</a>
+        <h2>🧑🏻‍🏫 Jhun Brian Andam</h2>
+        <p><b>Data Science Instructor</b></p>
+        <a href="mailto:jhunbrian.andam@ustp.edu.ph">jhunbrian.andam@ustp.edu.ph</a>
+        <div class="divider">
+            <h4>🎓 Educational Background</h4>
+        </div>
+        <ul>
+            <li><strong>Bachelor of Science in Data Science</strong></li>
+            <li>University of Science and Technology of Southern Philippines, 2022</li>
+        </ul>
+        <div class="divider">
+            <h4>📜 Research Background</h4>
+        </div>
+        <ul>
+            <li><strong>Research Interests:</strong> Artificial Intelligence, Machine Learning</li>
+            <li><strong>ORCID:</strong> ####-####-####-####</li>
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+
+                <div class="reference">
+                    <p><strong>Title:</strong> Title of the Journal Article</p>
+                    <p><strong>Author:</strong> Author's Name</p>
+                    <p><strong>Publication Year:</strong> 2024</p>
+                    <p><strong>Journal:</strong> Name of the Journal</p>
+                    <p><strong>DOI:</strong> 10.1234/journal.doi</p>
+                </div>
+        </ul>
+    </div>
+</div> -->
+	
+</body>
+</html>
