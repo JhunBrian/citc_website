@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial;
+}
+
+.citc_nav {
+  list-style: none;
+  background: #fff; /* Add white background */
+}
+
+.citc_nav li {
+  display: inline-block;
+  position: relative;
+}
+
+.citc_nav li a {
+  display: block;
+  padding: 20px;
+  color: #080147;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  position: relative;
+  font-weight: bold;
+}
+
+.citc_nav li ul.dropdown li {
+  display: block;
+}
+
+.citc_nav li ul.dropdown {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  display: none;
+  background: #fff; /* Add white background to dropdown */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
+
+.citc_nav li a:hover {
+  color: #F7B424;
+}
+
+.citc_nav li:hover ul.dropdown {
+  display: block;
+}
+
+.citc_nav li ul li a {
+  font-size: 12px;
+  text-align: left;
+}
+
+.citc_nav li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #141267;
+  opacity: 0;
+  transition: opacity 0.5s, background-color 0.5s;
+}
+
+.citc_nav li a:hover::before {
+  opacity: 1;
+  background-color: #F7B424;
+}
+
+.smol_logo {
+/*	max-width: 50px;*/
+	height: 30px;
+	padding: 0px;
+	margin-bottom: -7px;
+}
+
+	</style>
+</head>
+<body>
+
+<ul class="citc_nav">
+  <li>
+  	<a href="ustp.edu.ph/cdeo/citc">
+  	<img class="smol_logo" src="../assets/images/0.png"> CITC
+  </a>
+</li>
+  <li>
+      <a href="#">About Us 🠷</a>
+      <ul class="dropdown">
+        <li><a href="#">History</a></li>
+        <li><a href="https://www.ustp.edu.ph/?page_id=61685&amp;preview_id=61685&amp;preview_nonce=bfc1b1ea10&amp;preview=true#dean-corner">Dean's Corner</a></li>
+        <li><a href="#">Organization</a></li>
+        <!--Organization: Mission and Strategic Goals -->
+        <li><a href="#">Downloadables</a></li>
+      </ul>
+  </li>
+  <li>
+    <a href="#">Departments 🠷</a>
+    <ul class="dropdown">
+      <li><a href="#">Information Technology</a></li>
+      <li><a href="#">Technology Communication and Management</a></li>
+      <li><a href="#">Data Science</a></li>
+      <li><a href="#">Computer Science</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Offered Programs 🠷</a>
+    <ul class="dropdown">
+      <li><a href="#">Undergraduate Programs</a></li>
+      <li><a href="#">Graduate Programs</a></li>
+    </ul>
+  </li>
+  <li><a href="#">Student Life</a></li>
+</ul>
+	
+</body>
+</html>
